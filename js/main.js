@@ -10,124 +10,131 @@ BONUS
 
 let containerDom = document.getElementById('container');
 
+const colors = [0, 1, 2, 3, 4, 5, 6, 7 ,8 ,9 , 'a', 'b', 'c', 'd', 'e', 'f']
+
+let color = "";
+
 let animals = [
 	{
 		name: 'cat',
 		prefix: 'fa-',
 		type: 'animal',
 		family: 'fas',
-		color: 'orange'
+		color
 	},
 	{
 		name: 'crow',
 		prefix: 'fa-',
 		type: 'animal',
 		family: 'fas',
-		color: 'orange'
+		color
 	},
 	{
 		name: 'dog',
 		prefix: 'fa-',
 		type: 'animal',
 		family: 'fas',
-		color: 'orange'
+		color
 	},
 	{
 		name: 'dove',
 		prefix: 'fa-',
 		type: 'animal',
 		family: 'fas',
-		color: 'orange'
+		color
 	},
 	{
 		name: 'dragon',
 		prefix: 'fa-',
 		type: 'animal',
 		family: 'fas',
-		color: 'orange'
+		color
 	},
 	{
 		name: 'horse',
 		prefix: 'fa-',
 		type: 'animal',
 		family: 'fas',
-		color: 'orange'
+		color
 	},
 	{
 		name: 'hippo',
 		prefix: 'fa-',
 		type: 'animal',
 		family: 'fas',
-		color: 'orange'
+		color
 	},
 	{
 		name: 'fish',
 		prefix: 'fa-',
 		type: 'animal',
 		family: 'fas',
-		color: 'orange'
+		color
 	},
 	{
 		name: 'carrot',
 		prefix: 'fa-',
 		type: 'vegetable',
 		family: 'fas',
-		color: 'green'
+		color
 	},
 	{
 		name: 'apple-alt',
 		prefix: 'fa-',
 		type: 'vegetable',
 		family: 'fas',
-		color: 'green'
+		color
 	},
 	{
 		name: 'lemon',
 		prefix: 'fa-',
 		type: 'vegetable',
 		family: 'fas',
-		color: 'green'
+		color
 	},
 	{
 		name: 'pepper-hot',
 		prefix: 'fa-',
 		type: 'vegetable',
 		family: 'fas',
-		color: 'green'
+		color
 	},
 	{
 		name: 'user-astronaut',
 		prefix: 'fa-',
 		type: 'user',
 		family: 'fas',
-		color: 'blue'
+		color
 	},
 	{
 		name: 'user-graduate',
 		prefix: 'fa-',
 		type: 'user',
 		family: 'fas',
-		color: 'blue'
+		color
 	},
 	{
 		name: 'user-ninja',
 		prefix: 'fa-',
 		type: 'user',
 		family: 'fas',
-		color: 'blue'
+		color
 	},
 	{
 		name: 'user-secret',
 		prefix: 'fa-',
 		type: 'user',
 		family: 'fas',
-		color: 'blue'
+		color
 	}
 ];
 
+animals.forEach (element => {
+    element.color = randomcolor(colors);
+})
 
 animals.forEach(element => {
-    let animalsCreateBox = `<div class="flex"><i class="fa-solid ${element.prefix}${element.name}   box" style="color:${element.color}"></i></div>`
+    let animalsCreateBox = `<div class="flex"><i class="fa-solid ${element.prefix}${element.name}   box" style="color:#${element.color}"></i></div>`
     containerDom.innerHTML += animalsCreateBox ;
 });
 
@@ -147,7 +154,24 @@ selectDom.addEventListener ('change',
 
         containerDom.innerHTML = '';
         filteredItems.forEach(element => {
-            let animalsCreateBox = `<i class="fa-solid ${element.prefix}${element.name}   box" style="color:${element.color}"></i>`
+            let animalsCreateBox = `<div class="flex"><i class="fa-solid ${element.prefix}${element.name}   box" style="color:#${element.color}"></i></div>`
             containerDom.innerHTML += animalsCreateBox ;
         });
 })
+
+function randomcolor(colors) {
+    let combinazione = "";
+    let generazione = [];
+    for (let i = 0; i < 6; i++ ) {
+        let numeroCasuale = Math.floor(Math.random() * colors.length);
+
+        
+        generazione.push (numeroCasuale);
+
+        combinazione += colors[numeroCasuale]
+    }
+    console.log(generazione);
+    console.log(combinazione);
+    return combinazione
+
+}
