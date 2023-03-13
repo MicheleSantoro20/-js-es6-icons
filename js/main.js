@@ -127,7 +127,7 @@ let animals = [
 
 
 animals.forEach(element => {
-    let animalsCreateBox = `<i class="fa-solid ${element.prefix}${element.name}   box" style="color:${element.color}"></i>`
+    let animalsCreateBox = `<div class="flex"><i class="fa-solid ${element.prefix}${element.name}   box" style="color:${element.color}"></i></div>`
     containerDom.innerHTML += animalsCreateBox ;
 });
 
