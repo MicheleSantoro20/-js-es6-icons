@@ -128,8 +128,8 @@ let animals = [
 
 let animalsBox = [];
 animals.forEach(element => {
-    let animalsCreateBox = `<i class="fa-solid ${element.prefix}${element.name} box"></i>`
-    animalsBox.push(animalsCreateBox) ;
+    let animalsCreateBox = `<i class="fa-solid ${element.prefix}${element.name}   box" style="color:${element.color}"></i>`
+    containerDom.innerHTML += animalsCreateBox ;
 });
 
-containerDom.innerHTML = animalsBox
+
