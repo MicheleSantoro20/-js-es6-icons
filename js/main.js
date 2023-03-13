@@ -8,7 +8,7 @@ BONUS
 1- modificare la struttura dati fornita e valorizzare la proprietà “color” in modo dinamico: generare in modo casuale un codice colore, sapendo che la notazione esadecimale è formata dal simbolo “#” seguito da 6 caratteri alfanumerici compresi tra 0 e 9 e A e F.
 2- popolare le options della select della milestone 3 dinamicamente. */
 
-const containerDom = document.getElementById('container');
+let containerDom = document.getElementById('container');
 
 let animals = [
 	{
@@ -126,6 +126,10 @@ let animals = [
 ];
 
 
-animals.forEach((element, ) => {
-    element = ``
-})
+let animalsBox = [];
+animals.forEach(element => {
+    let animalsCreateBox = `<i class="fa-solid ${element.prefix}${element.name} box"></i>`
+    animalsBox.push(animalsCreateBox) ;
+});
+
+containerDom.innerHTML = animalsBox

@@ -10,6 +10,17 @@ main {
     border: 1px solid red;
 }
 
-.container {
+#container {
     width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.box {
+    width: 150px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
