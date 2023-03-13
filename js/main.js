@@ -126,10 +126,28 @@ let animals = [
 ];
 
 
-let animalsBox = [];
 animals.forEach(element => {
     let animalsCreateBox = `<i class="fa-solid ${element.prefix}${element.name}   box" style="color:${element.color}"></i>`
     containerDom.innerHTML += animalsCreateBox ;
 });
 
 
+let selectDom = document.getElementById('selector');
+
+
+selectDom.addEventListener ('change', 
+    function(){
+        const filteredItems = animals.filter (element => {
+            if (element.type == selectDom.value) {
+                return element;
+            } else if ( selectDom.value == "all") {
+                return element;
+            }
+        })
+
+        containerDom.innerHTML = '';
+        filteredItems.forEach(element => {
+            let animalsCreateBox = `<i class="fa-solid ${element.prefix}${element.name}   box" style="color:${element.color}"></i>`
+            containerDom.innerHTML += animalsCreateBox ;
+        });
+})
